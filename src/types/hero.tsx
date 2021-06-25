@@ -9,6 +9,7 @@ type hero = {
   description: string;
   superpowers: superpower[];
   image: string;
+  gender: string;
 };
 
 export default hero;
