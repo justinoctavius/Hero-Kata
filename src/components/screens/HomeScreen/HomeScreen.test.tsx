@@ -14,4 +14,8 @@ describe('<HomeScreen />', () => {
     const heros = await wrapper.findAllByTestId('hero-card');
     expect(heros.length).toBeGreaterThan(0);
   });
+  it('Should render a list of backgrounds', async () => {
+    const backgrounds = await wrapper.findAllByTestId('hero-bg');
+    expect(backgrounds.length).toBeGreaterThan(0);
+  });
 });
