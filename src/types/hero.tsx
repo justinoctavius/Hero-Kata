@@ -7,7 +7,8 @@ type hero = {
   partners: hero[];
   raze: string;
   description: string;
-  superpowers: superpower[]
+  superpowers: superpower[];
+  image: string;
 };
 
 export default hero;
