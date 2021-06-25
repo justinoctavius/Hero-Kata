@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, RenderAPI } from '@testing-library/react-native';
+import { fireEvent, render, RenderAPI } from '@testing-library/react-native';
 import HeroCard from './index';
 import { Hero } from '../../../types';
 
@@ -20,10 +20,12 @@ const heroExpected: Hero = {
   ]
 };
 
+const onPressHandler = jest.fn();
+
 describe('<HeroCard />', () => {
   let wrapper: RenderAPI;
   beforeEach(() => {
-    wrapper = render(<HeroCard hero={heroExpected} />);
+    wrapper = render(<HeroCard hero={heroExpected} onPress={onPressHandler} />);
   });
 
   it('Should render a hero nickname', () => {
@@ -31,5 +33,10 @@ describe('<HeroCard />', () => {
   });
   it('Should render a name', () => {
     wrapper.getByText(heroExpected.name);
+  });
+  it('Should call the method once when is pressed', () => {
+    const card = wrapper.getByTestId('hero-card');
+    fireEvent(card, 'press');
+    expect(onPressHandler).toBeCalledTimes(1);
   });
 });

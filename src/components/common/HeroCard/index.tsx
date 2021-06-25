@@ -1,22 +1,32 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Dimensions,
+  Pressable
+} from 'react-native';
 import { Hero } from '../../../types';
 
 type propsTypes = {
   hero: Hero;
+  onPress: (id: number) => void;
 };
 
 const { width, height } = Dimensions.get('window');
 
-const HeroCard = ({ hero }: propsTypes) => {
+const HeroCard = ({ hero, onPress }: propsTypes) => {
   return (
-    <View testID="hero-card" style={styles.cardContainer}>
-      <View style={styles.card}>
-        <Image source={{ uri: hero.image }} style={styles.image} />
-        <Text style={styles.nickname}>{hero.nickname}</Text>
-        <Text style={styles.name}>{hero.name}</Text>
+    <Pressable onPress={() => onPress(hero.id)} testID="hero-card">
+      <View style={styles.cardContainer}>
+        <View style={styles.card}>
+          <Image source={{ uri: hero.image }} style={styles.image} />
+          <Text style={styles.nickname}>{hero.nickname}</Text>
+          <Text style={styles.name}>{hero.name}</Text>
+        </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

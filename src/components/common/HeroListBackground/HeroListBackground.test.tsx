@@ -1,25 +1,19 @@
 import React from 'react';
 import { render, RenderAPI } from '@testing-library/react-native';
-import HeroList from '.';
 import { Animated } from 'react-native';
 import herosModel from '../../../models/heros.model';
-
-const onPressHandler = jest.fn();
+import HeroListBackground from './index';
 
 describe('<HeroList />', () => {
   let wrapper: RenderAPI;
   beforeEach(() => {
     wrapper = render(
-      <HeroList
-        scrollX={new Animated.Value(0)}
-        heros={herosModel}
-        onPressHero={onPressHandler}
-      />
+      <HeroListBackground scrollX={new Animated.Value(0)} heros={herosModel} />
     );
   });
 
-  it('Should render a list of hero', async () => {
-    const hero = await wrapper.findAllByTestId('hero-card');
+  it('Should render a list of background', async () => {
+    const hero = await wrapper.findAllByTestId('hero-bg');
     expect(hero.length).toBeGreaterThan(0);
   });
 });

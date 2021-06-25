@@ -2,6 +2,10 @@ import React from 'react';
 import { cleanup, render, RenderAPI } from '@testing-library/react-native';
 import HomeScreen from './index';
 
+jest.mock('@react-navigation/native', () => ({
+  useNavigation: () => ({ navigate: () => {} })
+}));
+
 describe('<HomeScreen />', () => {
   let wrapper: RenderAPI;
   beforeEach(() => {

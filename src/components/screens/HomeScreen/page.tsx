@@ -1,27 +1,22 @@
 import React from 'react';
 import { useRef } from 'react';
-import {
-  View,
-  StyleSheet,
-  StatusBar,
-  Dimensions,
-  Animated
-} from 'react-native';
+import { View, StatusBar, Animated } from 'react-native';
 import { Hero } from '../../../types';
 import { HeroList, HeroListBackground } from './../../common/';
 
 type propsTypes = {
   heros: Hero[];
+  onPressHero: (id: number) => void;
 };
 
-const HomeScreenPage = ({ heros }: propsTypes) => {
+const HomeScreenPage = ({ heros, onPressHero }: propsTypes) => {
   const scrollX = useRef(new Animated.Value(0)).current;
 
   return (
     <View>
       <StatusBar hidden />
       <HeroListBackground heros={heros} scrollX={scrollX} />
-      <HeroList scrollX={scrollX} heros={heros} />
+      <HeroList scrollX={scrollX} heros={heros} onPressHero={onPressHero} />
     </View>
   );
 };
