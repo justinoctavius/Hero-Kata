@@ -1,0 +1,12 @@
+{
+  "name": "hero-frontend",
+  "displayName": "hero-frontend",
+  "expo": {
+    "name": "hero-frontend",
+    "slug": "hero-frontend",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
