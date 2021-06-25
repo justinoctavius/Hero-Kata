@@ -3,10 +3,20 @@ import { QueryResponse } from '../../types';
 import IHeroApi from './HeroApi.interface';
 
 class HeroApi implements IHeroApi {
-  getByName(name: string): Promise<QueryResponse> {
+  filterHero(name: string): Promise<QueryResponse> {
     const query = () =>
       new Promise((resolve) =>
-        setTimeout(() => resolve(HerosModel.find((hero) => hero.name === name)))
+        setTimeout(
+          () =>
+            resolve(
+              HerosModel.filter(
+                (hero) =>
+                  hero.name.toLowerCase().indexOf(name.toLowerCase()) != -1 ||
+                  hero.nickname.toLowerCase().indexOf(name.toLowerCase()) != -1
+              )
+            ),
+          300
+        )
       );
     return this.execQuery(query);
   }

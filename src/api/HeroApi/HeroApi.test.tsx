@@ -27,13 +27,10 @@ describe('HeroApi', () => {
     expect(JSON.stringify(heroResponse.payload)).toBe(expected);
   });
 
-  it('Should return a hero by the name', async () => {
+  it('Should return a list of hero given a name', async () => {
     const name = 'Bruce Wayne';
-    const expected: string = JSON.stringify(
-      HerosModel.find((hero) => hero.name == name)
-    );
-    const heroResponse: QueryResponse = await heroApi.getByName(name);
-    expect(JSON.stringify(heroResponse.payload)).toBe(expected);
+    const heroResponse: QueryResponse = await heroApi.filterHero(name);
+    expect(heroResponse.payload.length).toBeGreaterThan(0);
   });
 
   it('Should return a success msg', () => {
