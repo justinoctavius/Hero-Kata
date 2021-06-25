@@ -8,6 +8,7 @@ import {
   Pressable
 } from 'react-native';
 import { Hero } from '../../../types';
+import HeroIdentity from './../HeroIdentity/index';
 
 type propsTypes = {
   hero: Hero;
@@ -22,9 +23,8 @@ const HeroCard = ({ hero, onPress }: propsTypes) => {
       <View style={styles.cardContainer}>
         <View style={styles.card}>
           <Image source={{ uri: hero.image }} style={styles.image} />
-          <Text style={styles.nickname}>{hero.nickname}</Text>
-          <Text style={styles.name}>{hero.name}</Text>
         </View>
+        <HeroIdentity nickname={hero.nickname} name={hero.name} />
       </View>
     </Pressable>
   );
@@ -45,17 +45,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderRadius: 16
-  },
-  nickname: {
-    color: '#eee9',
-    textAlign: 'center',
-    fontSize: 25,
-    transform: [{ rotateX: '45deg' }, { scale: 2 }]
-  },
-  name: {
-    color: '#eee5',
-    textAlign: 'center',
-    fontSize: 15
   }
 });
 

@@ -58,6 +58,10 @@ describe('<DetailsScreen />', () => {
     await wrapper.findByText(heroExpected.description);
   });
 
+  it('Should render a back button', () => {
+    wrapper.getByText('Back');
+  });
+
   it('Should render all the superpowers', async () => {
     const superpowers = await wrapper.findAllByTestId('superpower');
     expect(superpowers.length).toBe(heroExpected.superpowers.length);

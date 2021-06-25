@@ -12,12 +12,8 @@ const DetailsScreen = () => {
     navigation.navigate('Home');
   };
 
-  const getHeroHandler = async () => {
-    await getHero(route.params?.id);
-  };
-
   useEffect(() => {
-    getHeroHandler();
+    getHero(route.params?.id);
   }, []);
 
   return (

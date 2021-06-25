@@ -1,14 +1,8 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Pressable,
-  ScrollView
-} from 'react-native';
+import { View, Image, StyleSheet, ScrollView } from 'react-native';
 import { Hero } from '../../../types';
+import { ButtonCustom, HeroIdentity, TextCustom } from '../../common/';
 
 type propsType = {
   hero: Hero;
@@ -18,10 +12,8 @@ type propsType = {
 const DetailsScreenPage = ({ hero, onBackPress }: propsType) => {
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => onBackPress()} style={styles.back}>
-        <Text style={[styles.text, { textAlign: 'left' }]}>Back</Text>
-      </Pressable>
-      <View style={{ height: '50%' }}>
+      <ButtonCustom text="Back" onPress={onBackPress} style={styles.back} />
+      <View style={{ flex: 1 }}>
         <Image
           source={{ uri: hero?.image }}
           style={[StyleSheet.absoluteFillObject, { zIndex: -9 }]}
@@ -31,23 +23,20 @@ const DetailsScreenPage = ({ hero, onBackPress }: propsType) => {
           style={{ flex: 0.5, top: '50%' }}
         />
       </View>
-      <View style={{ height: '50%' }}>
-        <View>
-          <Text style={[styles.text, styles.nickname]}>{hero?.nickname}</Text>
-          <Text style={[styles.text, { color: '#eee5' }]}>{hero?.name}</Text>
-        </View>
+      <View style={{ flex: 1 }}>
+        <HeroIdentity nickname={hero?.nickname} name={hero?.name} />
         <View style={styles.info}>
-          <Text style={[styles.text]}>{hero?.age + ' years old'}</Text>
-          <Text style={[styles.text]}>{hero?.gender}</Text>
-          <Text style={[styles.text]}>{hero?.raze}</Text>
+          <TextCustom>{hero?.age + ' years old'}</TextCustom>
+          <TextCustom>{hero?.gender}</TextCustom>
+          <TextCustom>{hero?.raze}</TextCustom>
         </View>
-        <Text style={styles.text}>{hero?.description}</Text>
-        <Text style={[styles.text, { fontSize: 25 }]}>Superpowers</Text>
+        <TextCustom>{hero?.description}</TextCustom>
+        <TextCustom style={{ fontSize: 25 }}>Superpowers</TextCustom>
         <ScrollView>
           {hero?.superpowers.map((superpower, index) => (
-            <Text key={index} style={styles.text} testID="superpower">
+            <TextCustom key={index} testID="superpower">
               {superpower}
-            </Text>
+            </TextCustom>
           ))}
         </ScrollView>
       </View>
@@ -61,23 +50,10 @@ const styles = StyleSheet.create({
     height: '100%',
     position: 'relative'
   },
-  text: {
-    color: '#CCC',
-    textAlign: 'center',
-    fontSize: 15
-  },
   back: {
-    padding: 10,
     position: 'absolute',
     top: 10,
-    left: 10,
-    backgroundColor: '#2229',
-    borderRadius: 5
-  },
-  nickname: {
-    color: '#EEE',
-    fontSize: 25,
-    transform: [{ rotateX: '45deg' }, { scale: 2 }]
+    left: 10
   },
   info: {
     flexDirection: 'row',
