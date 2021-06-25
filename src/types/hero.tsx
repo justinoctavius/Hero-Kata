@@ -1,4 +1,5 @@
 type Hero = {
+  id: number;
   name: string;
   nickname: string;
   age: number;
