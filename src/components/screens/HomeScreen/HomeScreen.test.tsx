@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, RenderAPI } from '@testing-library/react-native';
+import { cleanup, render, RenderAPI } from '@testing-library/react-native';
 import HomeScreen from './index';
 
 describe('<HomeScreen />', () => {
@@ -8,8 +8,10 @@ describe('<HomeScreen />', () => {
     wrapper = render(<HomeScreen />);
   });
 
-  it('Should return a home title', () => {
-    const title = wrapper.getByText('Home');
-    expect(title).toBeDefined();
+  afterEach(cleanup);
+
+  it('Should render a list of hero', async () => {
+    const heros = await wrapper.findAllByTestId('hero-card');
+    expect(heros.length).toBeGreaterThan(0);
   });
 });
