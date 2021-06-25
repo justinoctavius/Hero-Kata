@@ -1,10 +1,9 @@
 import superpower from "./superpower";
 
-type hero = {
+type Hero = {
   name: string;
   nickname: string;
   age: number;
-  partners: hero[];
   raze: string;
   description: string;
   superpowers: superpower[];
@@ -12,4 +11,4 @@ type hero = {
   gender: string;
 };
 
-export default hero;
+export default Hero;
