@@ -6,6 +6,8 @@ import herosModel from '../../../models/heros.model';
 
 const onPressHandler = jest.fn();
 
+jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
+
 describe('<HeroList />', () => {
   let wrapper: RenderAPI;
   beforeEach(() => {

@@ -6,6 +6,8 @@ jest.mock('@react-navigation/native', () => ({
   useNavigation: () => ({ navigate: () => {} })
 }));
 
+jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
+
 describe('<HomeScreen />', () => {
   let wrapper: RenderAPI;
   beforeEach(() => {
