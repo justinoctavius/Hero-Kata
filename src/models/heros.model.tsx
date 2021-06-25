@@ -1,5 +1,6 @@
 export default [
   {
+    id: 1,
     name: 'Bruce Wayne',
     nickname: 'Batman',
     raze: '	Human',
@@ -15,6 +16,7 @@ export default [
     ]
   },
   {
+    id: 2,
     name: 'Diana Prince',
     nickname: 'Wonder Woman',
     raze: 'Amazon',
@@ -33,6 +35,7 @@ export default [
     ]
   },
   {
+    id: 3,
     name: 'Barry Allen',
     nickname: 'The Flash',
     raze: 'Human',
@@ -48,11 +51,12 @@ export default [
       'Superhuman strength',
       'Intangibility',
       'Invisibility',
-      "Time travel",
-      "Dimension travel"
+      'Time travel',
+      'Dimension travel'
     ]
   },
   {
+    id: 4,
     name: 'Victor "Vic" Stone',
     nickname: 'Cyborg',
     raze: 'Human Cyborgnoid',
@@ -61,16 +65,17 @@ export default [
     gender: 'masculine',
     image: 'https://wallpapercave.com/wp/wp3538563.jpg',
     superpowers: [
-      "Superhuman strength",
-      "Superhuman speed",
-      "Superhuman durability",
-      "Advanced sensory",
-      "Data Manipulation",
-      "Self-regenerative systems",
-      "Technopathy"
+      'Superhuman strength',
+      'Superhuman speed',
+      'Superhuman durability',
+      'Advanced sensory',
+      'Data Manipulation',
+      'Self-regenerative systems',
+      'Technopathy'
     ]
   },
   {
+    id: 5,
     name: 'Clark Joseph Kent',
     nickname: 'Superman',
     raze: '	Kryptonian',
@@ -81,17 +86,18 @@ export default [
     image:
       'https://nicolasramospintado.files.wordpress.com/2007/02/henry-cavill-superman-wallpaper-wallpaper-4.jpg',
     superpowers: [
-      "powers of flight",
-      "superhuman strength",
-      " x-ray vision",
-      "heat vision",
-      "cold breath",
-      "super-speed",
-      "enhanced hearing",
-      "nigh-invulnerability."
+      'powers of flight',
+      'superhuman strength',
+      ' x-ray vision',
+      'heat vision',
+      'cold breath',
+      'super-speed',
+      'enhanced hearing',
+      'nigh-invulnerability.'
     ]
   },
   {
+    id: 6,
     name: 'Arthur Curry',
     nickname: 'Aquaman',
     raze: 'Hybrid between Atlantic and Human',
@@ -101,13 +107,13 @@ export default [
     gender: 'masculine',
     image: 'https://wallpaperaccess.com/full/2772776.jpg',
     superpowers: [
-      "Superhuman strength",
-      "Superhuman durability",
-      "Superhuman speed",
-      "Superhuman reflexes",
-      "Senses Telepathic control of all aquatic life",
-      "Master tactician Skilled hand-to-hand",
-      "Martial artist Underwater",
+      'Superhuman strength',
+      'Superhuman durability',
+      'Superhuman speed',
+      'Superhuman reflexes',
+      'Senses Telepathic control of all aquatic life',
+      'Master tactician Skilled hand-to-hand',
+      'Martial artist Underwater'
     ]
   }
 ];

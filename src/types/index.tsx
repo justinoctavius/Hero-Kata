@@ -1,3 +1,4 @@
-import Hero from './hero';
+import Hero from './Hero';
+import QueryResponse from './QueryResponse';
 
-export {Hero}
+export { Hero, QueryResponse };
