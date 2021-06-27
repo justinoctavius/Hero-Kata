@@ -1,3 +1,3 @@
-import HeroApi from './HeroApi';
+import { HeroApi } from './HeroApi/';
 
 export { HeroApi };
