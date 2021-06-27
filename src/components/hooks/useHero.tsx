@@ -1,28 +1,47 @@
-import { useEffect, useState } from 'react';
-import { QueryResponse } from '../../types';
-import HeroFacade from './../../helpers/HeroFacade/index';
+import { Filter } from '../../types';
+import { useContext } from 'react';
+import { HeroContext } from '../providers';
+import Hero from './../../types/Hero';
 
 const useHero = () => {
-  const heroFacade = new HeroFacade();
-  const [herosResponse, setHerosResponse] = useState<QueryResponse>();
-  const [heroResponse, setHeroResponse] = useState<QueryResponse>();
+  const { heroActions, heroState, herosState, writeState }: any =
+    useContext(HeroContext);
 
   const getHeros = async () => {
-    const heros = await heroFacade.getHeros();
-    setHerosResponse(heros);
+    await heroActions.getHeros();
   };
 
-  const filterHero = async (name: string) => {
-    const heros = await heroFacade.filterHero(name);
-    setHerosResponse(heros);
+  const filterHero = async (filter: Filter) => {
+    await heroActions.filterHero(filter);
   };
 
-  const getHero = async (id: number) => {
-    const hero = await heroFacade.getHero(id);
-    setHeroResponse(hero);
+  const getHero = async (id: string) => {
+    await heroActions.getHero(id);
   };
 
-  return { herosResponse, heroResponse, getHero, filterHero, getHeros };
+  const addHero = async (hero: Hero) => {
+    await heroActions.addHero(hero);
+  };
+
+  const updateHero = async (id: string, hero: Hero) => {
+    await heroActions.updateHero(id, hero);
+  };
+
+  const deleteHero = async (id: string) => {
+    await heroActions.deleteHero(id);
+  };
+
+  return {
+    heroState,
+    herosState,
+    writeState,
+    getHero,
+    filterHero,
+    getHeros,
+    addHero,
+    updateHero,
+    deleteHero
+  };
 };
 
 export default useHero;
