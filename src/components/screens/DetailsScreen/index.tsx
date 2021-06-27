@@ -4,7 +4,7 @@ import { useHero } from '../../hooks';
 import DetailsScreenPage from './page';
 
 const DetailsScreen = () => {
-  const { heroResponse, getHero } = useHero();
+  const { heroState, getHero } = useHero();
   const navigation = useNavigation();
   const route: any = useRoute();
 
@@ -18,7 +18,7 @@ const DetailsScreen = () => {
 
   return (
     <DetailsScreenPage
-      hero={heroResponse?.payload}
+      hero={heroState?.payload}
       onBackPress={onBackPressHandler}
     />
   );

@@ -5,20 +5,20 @@ import { useHero } from '../../hooks';
 import HomeScreenPage from './page';
 
 const HomeScreen = () => {
-  const { herosResponse, getHeros } = useHero();
+  const { herosState, getHeros } = useHero();
   const navigation = useNavigation();
 
   useEffect(() => {
     getHeros();
   }, []);
 
-  const onPressHeroHandler = (id: number) => {
+  const onPressHeroHandler = (id: string) => {
     navigation.navigate('Details', { id });
   };
 
   return (
     <HomeScreenPage
-      heros={herosResponse?.payload}
+      heros={herosState?.payload}
       onPressHero={onPressHeroHandler}
     />
   );

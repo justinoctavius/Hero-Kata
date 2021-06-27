@@ -6,7 +6,7 @@ import HeroCard from '../HeroCard';
 type propsType = {
   heros: Hero[];
   scrollX: Animated.Value;
-  onPressHero: (id: number) => void;
+  onPressHero: (id: string) => void;
 };
 
 const HeroList = ({ heros, scrollX, onPressHero }: propsType) => {

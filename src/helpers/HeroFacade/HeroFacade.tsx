@@ -1,9 +1,8 @@
 import { Hero, ApiResponse, Filter } from '../../types';
 import IHeroFacade from './IHeroFacade';
-import IHeroApi from '../../api/HeroApi/IHeroApi';
+import { IHeroApi, HeroApi } from '../../api/HeroApi/';
 import HeroProxy from './../HeroProxy/';
-import HeroApi from './../../api/HeroApi/HeroApi';
-import { StatusFilterHandler } from '..';
+import StatusFilterHandler from '../StatusFilterHandler';
 import { IFilterHandler } from './../FilterHandler';
 
 class HeroFacade implements IHeroFacade {

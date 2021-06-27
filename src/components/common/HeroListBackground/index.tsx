@@ -29,7 +29,7 @@ const HeroListBackground = ({ heros, scrollX }: propsTypes) => {
             testID="hero-bg"
           >
             <Animated.Image
-              source={{ uri: hero.image }}
+              source={{ uri: hero.photoUrls[0] }}
               style={[StyleSheet.absoluteFillObject, { opacity }]}
               blurRadius={40}
             />

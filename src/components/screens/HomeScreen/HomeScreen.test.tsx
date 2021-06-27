@@ -8,6 +8,26 @@ jest.mock('@react-navigation/native', () => ({
 
 jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 
+jest.mock('./../../hooks/index', () => ({
+  useHero: () => ({
+    getHeros: () => {},
+    herosState: {
+      payload: [
+        {
+          id: '1',
+          name: 'Bruce Wayne',
+          birth: '10/10/2010',
+          death: '10/10/2001',
+          photoUrls: [],
+          status: 'alive',
+          type: 'dc',
+          timeline: 'present'
+        }
+      ]
+    }
+  })
+}));
+
 describe('<HomeScreen />', () => {
   let wrapper: RenderAPI;
   beforeEach(() => {

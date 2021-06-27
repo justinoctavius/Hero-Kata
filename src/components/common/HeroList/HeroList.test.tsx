@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, RenderAPI } from '@testing-library/react-native';
+import { render, RenderAPI, fireEvent } from '@testing-library/react-native';
 import HeroList from '.';
 import { Animated } from 'react-native';
 import herosModel from '../../../models/heros.model';
@@ -23,5 +23,10 @@ describe('<HeroList />', () => {
   it('Should render a list of hero', async () => {
     const hero = await wrapper.findAllByTestId('hero-card');
     expect(hero.length).toBeGreaterThan(0);
+  });
+  it('Should press the onPressHero', async () => {
+    const button = wrapper.getAllByTestId('hero-card')[0];
+    fireEvent(button, 'press');
+    expect(onPressHandler).toBeCalledTimes(1);
   });
 });

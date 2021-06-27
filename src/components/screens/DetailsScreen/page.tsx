@@ -15,7 +15,7 @@ const DetailsScreenPage = ({ hero, onBackPress }: propsType) => {
       <ButtonCustom text="Back" onPress={onBackPress} style={styles.back} />
       <View style={{ flex: 1 }}>
         <Image
-          source={{ uri: hero?.image }}
+          source={{ uri: hero?.photoUrls[0] }}
           style={[StyleSheet.absoluteFillObject, { zIndex: -9 }]}
         />
         <LinearGradient
@@ -24,21 +24,29 @@ const DetailsScreenPage = ({ hero, onBackPress }: propsType) => {
         />
       </View>
       <View style={{ flex: 1 }}>
-        <HeroIdentity nickname={hero?.nickname} name={hero?.name} />
+        <HeroIdentity type={hero?.type} name={hero?.name} />
         <View style={styles.info}>
-          <TextCustom>{hero?.age + ' years old'}</TextCustom>
-          <TextCustom>{hero?.gender}</TextCustom>
-          <TextCustom>{hero?.raze}</TextCustom>
+          <View>
+            <TextCustom style={{ fontSize: 20 }}>Birthday</TextCustom>
+            <TextCustom style={{ color: '#eee9' }}>{hero?.birth}</TextCustom>
+          </View>
+          <View>
+            <TextCustom style={{ fontSize: 20 }}>Deathday</TextCustom>
+            <TextCustom style={{ color: '#eee9' }}>{hero?.death}</TextCustom>
+          </View>
+          <View>
+            <TextCustom style={{ fontSize: 20 }}>Status</TextCustom>
+            <TextCustom style={{ color: '#eee9' }}>{hero?.status}</TextCustom>
+          </View>
+          {hero?.timeline && (
+            <View>
+              <TextCustom style={{ fontSize: 20 }}>Timeline</TextCustom>
+              <TextCustom style={{ color: '#eee9' }}>
+                {hero?.timeline}
+              </TextCustom>
+            </View>
+          )}
         </View>
-        <TextCustom>{hero?.description}</TextCustom>
-        <TextCustom style={{ fontSize: 25 }}>Superpowers</TextCustom>
-        <ScrollView>
-          {hero?.superpowers.map((superpower, index) => (
-            <TextCustom key={index} testID="superpower">
-              {superpower}
-            </TextCustom>
-          ))}
-        </ScrollView>
       </View>
     </View>
   );

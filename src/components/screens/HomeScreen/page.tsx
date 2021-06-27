@@ -6,12 +6,11 @@ import { HeroList, HeroListBackground } from './../../common/';
 
 type propsTypes = {
   heros: Hero[];
-  onPressHero: (id: number) => void;
+  onPressHero: (id: string) => void;
 };
 
 const HomeScreenPage = ({ heros, onPressHero }: propsTypes) => {
   const scrollX = useRef(new Animated.Value(0)).current;
-
   return (
     <View>
       <StatusBar hidden />

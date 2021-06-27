@@ -1,4 +1,5 @@
 import { Filter } from '../../types';
+import HeroFacade from '../../helpers/HeroFacade/HeroFacade';
 import { useContext } from 'react';
 import { HeroContext } from '../providers';
 import Hero from './../../types/Hero';
@@ -8,6 +9,7 @@ const useHero = () => {
     useContext(HeroContext);
 
   const getHeros = async () => {
+    console.log(heroActions);
     await heroActions.getHeros();
   };
 
