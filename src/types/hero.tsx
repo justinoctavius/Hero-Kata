@@ -1,13 +1,12 @@
 type Hero = {
-  id: number;
+  id: string;
   name: string;
-  nickname: string;
-  age: number;
-  raze: string;
-  description: string;
-  superpowers: string[];
-  image: string;
-  gender: string;
+  photoUrls: string[];
+  status: string;
+  type: string;
+  birth: string;
+  death: string;
+  timeline?: string;
 };
 
 export default Hero;

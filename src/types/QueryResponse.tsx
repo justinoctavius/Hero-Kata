@@ -1,8 +1,12 @@
-type QueryResponse = {
+export type OperationResponse = {
   success: boolean;
   payload: any;
   msg: string;
-  status: number;
-}
+};
 
-export default QueryResponse;
+export type ApiResponse = {
+  code: number;
+  type: string;
+  message: string;
+  payload: any;
+};

@@ -1,4 +1,5 @@
 import Hero from './Hero';
-import QueryResponse from './QueryResponse';
+import { ApiResponse, OperationResponse } from './QueryResponse';
+import Filter from './Filter';
 
-export { Hero, QueryResponse };
+export { Hero, ApiResponse, OperationResponse, Filter };
