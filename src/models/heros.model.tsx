@@ -1,5 +1,6 @@
-import { Hero, Status, Type } from '../types';
-import Timeline from './../types/Timeline';
+import { Hero } from '../types';
+import { Status, Type } from './../constants';
+import Timeline from '../constants/Timeline';
 
 const data: Hero[] = [
   {
