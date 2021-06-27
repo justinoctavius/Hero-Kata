@@ -8,13 +8,13 @@ import { IFilterHandler } from './../FilterHandler';
 
 class HeroFacade implements IHeroFacade {
   private heroApi: IHeroApi;
-  private instance: IHeroFacade | null = null;
+  private static instance: IHeroFacade | null = null;
   private statusFilterHandler: IFilterHandler;
   private constructor() {
     this.heroApi = new HeroProxy(new HeroApi());
     this.statusFilterHandler = new StatusFilterHandler(this.heroApi);
   }
-  public getInstance() {
+  public static getInstance() {
     if (!this.instance) {
       return (this.instance = new HeroFacade());
     }
