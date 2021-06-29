@@ -1,15 +1,21 @@
 import React from 'react';
 import { Text, Pressable, StyleSheet } from 'react-native';
+import { Theme } from '../../../constants';
 
 type propsType = {
   onPress: () => void;
   style?: any;
   text: string;
+  testID?: string;
 };
 
-const ButtonCustom = ({ onPress, style, text }: propsType) => {
+const ButtonCustom = ({ onPress, style, text, testID }: propsType) => {
   return (
-    <Pressable onPress={onPress} style={[styles.container, { ...style }]}>
+    <Pressable
+      onPress={onPress}
+      style={[styles.container, { ...style }]}
+      testID={testID}
+    >
       <Text style={styles.text}>{text}</Text>
     </Pressable>
   );
@@ -17,14 +23,14 @@ const ButtonCustom = ({ onPress, style, text }: propsType) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    backgroundColor: '#2229',
-    borderRadius: 5
+    padding: Theme.spaces.s1,
+    backgroundColor: Theme.colors.black + '5',
+    borderRadius: Theme.spaces.s1 / 2
   },
   text: {
-    color: '#CCC',
+    color: Theme.colors.primary,
     textAlign: 'center',
-    fontSize: 15
+    fontSize: Theme.fonts.normal
   }
 });
 

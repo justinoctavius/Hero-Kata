@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Theme } from '../../../constants';
 
 type propsType = {
   type: string;
@@ -17,16 +18,16 @@ const HeroIdentity = ({ type, name }: propsType) => {
 
 const styles = StyleSheet.create({
   name: {
-    color: '#eee9',
+    color: Theme.colors.primary + '9',
     textAlign: 'center',
-    fontSize: 25,
+    fontSize: Theme.fonts.title,
     transform: [{ rotateX: '45deg' }, { scale: 2 }]
   },
   type: {
-    color: '#eee9',
+    color: Theme.colors.primary + '9',
     textAlign: 'center',
-    fontSize: 15,
-    margin: 10
+    fontSize: Theme.fonts.normal,
+    margin: Theme.spaces.s1
   }
 });
 

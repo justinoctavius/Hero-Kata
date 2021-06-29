@@ -12,22 +12,22 @@ const { width, height } = Dimensions.get('window');
 
 const HeroCard = ({ hero, onPress }: propsTypes) => {
   return (
-    <Pressable onPress={() => onPress(hero.id)} testID="hero-card">
-      <View style={styles.cardContainer}>
+    <View style={styles.cardContainer} testID="hero-card">
+      <Pressable onPress={() => onPress(hero.id)} testID="hero-btn">
         <View style={styles.card}>
           <Image source={{ uri: hero.photoUrls[0] }} style={styles.image} />
         </View>
-        <HeroIdentity type={hero.type} name={hero.name} />
-      </View>
-    </Pressable>
+      </Pressable>
+      <HeroIdentity type={hero.type} name={hero.name} />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   cardContainer: {
+    top: '25%',
     width,
     height,
-    justifyContent: 'center',
     alignItems: 'center'
   },
   card: {

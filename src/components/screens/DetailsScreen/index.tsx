@@ -4,12 +4,20 @@ import { useHero } from '../../hooks';
 import DetailsScreenPage from './page';
 
 const DetailsScreen = () => {
-  const { heroState, getHero } = useHero();
+  const { heroState, getHero, deleteHero } = useHero();
   const navigation = useNavigation();
   const route: any = useRoute();
 
   const onBackPressHandler = () => {
     navigation.navigate('Home');
+  };
+
+  const onEditPressHandler = (id: string) => {
+    navigation.navigate('EditHero', { id });
+  };
+
+  const onDeletePressHandler = async (id: string) => {
+    await deleteHero(id);
   };
 
   useEffect(() => {
@@ -20,6 +28,8 @@ const DetailsScreen = () => {
     <DetailsScreenPage
       hero={heroState?.payload}
       onBackPress={onBackPressHandler}
+      onEditPress={onEditPressHandler}
+      onDeletePress={onDeletePressHandler}
     />
   );
 };

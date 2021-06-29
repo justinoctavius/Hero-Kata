@@ -1,15 +1,22 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import { View, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import { Hero } from '../../../types';
 import { ButtonCustom, HeroIdentity, TextCustom } from '../../common/';
 
 type propsType = {
   hero: Hero;
   onBackPress: () => void;
+  onEditPress: (id: string) => void;
+  onDeletePress: (id: string) => void;
 };
 
-const DetailsScreenPage = ({ hero, onBackPress }: propsType) => {
+const DetailsScreenPage = ({
+  hero,
+  onBackPress,
+  onEditPress,
+  onDeletePress
+}: propsType) => {
   return (
     <View style={styles.container}>
       <ButtonCustom text="Back" onPress={onBackPress} style={styles.back} />
@@ -23,29 +30,36 @@ const DetailsScreenPage = ({ hero, onBackPress }: propsType) => {
           style={{ flex: 0.5, top: '50%' }}
         />
       </View>
-      <View style={{ flex: 1 }}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'space-around'
+        }}
+      >
         <HeroIdentity type={hero?.type} name={hero?.name} />
         <View style={styles.info}>
           <View>
             <TextCustom style={{ fontSize: 20 }}>Birthday</TextCustom>
-            <TextCustom style={{ color: '#eee9' }}>{hero?.birth}</TextCustom>
+            <TextCustom>{hero?.birth}</TextCustom>
           </View>
           <View>
             <TextCustom style={{ fontSize: 20 }}>Deathday</TextCustom>
-            <TextCustom style={{ color: '#eee9' }}>{hero?.death}</TextCustom>
+            <TextCustom>{hero?.death}</TextCustom>
           </View>
           <View>
             <TextCustom style={{ fontSize: 20 }}>Status</TextCustom>
-            <TextCustom style={{ color: '#eee9' }}>{hero?.status}</TextCustom>
+            <TextCustom>{hero?.status}</TextCustom>
           </View>
           {hero?.timeline && (
             <View>
               <TextCustom style={{ fontSize: 20 }}>Timeline</TextCustom>
-              <TextCustom style={{ color: '#eee9' }}>
-                {hero?.timeline}
-              </TextCustom>
+              <TextCustom>{hero?.timeline}</TextCustom>
             </View>
           )}
+        </View>
+        <View style={[styles.info]}>
+          <ButtonCustom text="Edit" onPress={() => onEditPress(hero?.id)} />
+          <ButtonCustom text="Delete" onPress={() => onDeletePress(hero?.id)} />
         </View>
       </View>
     </View>

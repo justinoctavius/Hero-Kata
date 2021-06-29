@@ -2,7 +2,7 @@ import React from 'react';
 import { Hero } from '../../../types';
 import { cleanup, render, RenderAPI } from '@testing-library/react-native';
 import DetailsScreen from './index';
-import { Status, Type, Timeline } from '../../../constants';
+import { Status, Type, Timeline } from '../../../constants/';
 
 const heroExpected: Hero = {
   id: '1',
@@ -72,5 +72,8 @@ describe('<DetailsScreen />', () => {
 
   it('Should render a back button', () => {
     wrapper.getByText('Back');
+  });
+  it('Should render a edit button', () => {
+    wrapper.getByText('Edit');
   });
 });

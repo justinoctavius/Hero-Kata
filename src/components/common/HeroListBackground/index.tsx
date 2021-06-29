@@ -24,7 +24,7 @@ const HeroListBackground = ({ heros, scrollX }: propsTypes) => {
         });
         return (
           <View
-            style={StyleSheet.absoluteFillObject}
+            style={[StyleSheet.absoluteFillObject, { zIndex: -1 }]}
             key={index}
             testID="hero-bg"
           >

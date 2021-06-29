@@ -44,4 +44,7 @@ describe('<HomeScreen />', () => {
     const backgrounds = await wrapper.findAllByTestId('hero-bg');
     expect(backgrounds.length).toBeGreaterThan(0);
   });
+  it('Should render a Add hero button', async () => {
+    await wrapper.findByTestId('addBtn');
+  });
 });

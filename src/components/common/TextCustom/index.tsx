@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
+import { Theme } from '../../../constants';
 
 type propsTypes = {
   children: JSX.Element | string;
@@ -17,9 +18,9 @@ const TextCustom = ({ children, style, testID }: propsTypes) => {
 
 const styles = StyleSheet.create({
   text: {
-    color: '#CCC',
+    color: Theme.colors.primary + '9',
     textAlign: 'center',
-    fontSize: 15
+    fontSize: Theme.fonts.normal
   }
 });
 

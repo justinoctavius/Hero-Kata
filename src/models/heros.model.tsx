@@ -15,7 +15,9 @@ const data: Hero[] = [
   {
     id: '2',
     name: 'Diana Prince',
-    photoUrls: ['https://wallpaperstock.net/wallpapers/thumbs1/33623hd.jpg'],
+    photoUrls: [
+      'https://i.pinimg.com/736x/d6/39/f3/d639f3712d6b890e8b3ca44878d07c80.jpg'
+    ],
     birth: '10/20/1890',
     death: '10/10/1000',
     status: Status.alive,
@@ -35,7 +37,7 @@ const data: Hero[] = [
   {
     id: '4',
     name: 'Ironman',
-    photoUrls: ['https://wallpapercave.com/wp/wp3538563.jpg'],
+    photoUrls: ['https://images6.alphacoders.com/114/thumb-350-1141749.jpg'],
     birth: '10/20/1890',
     death: '10/10/1000',
     status: Status.alive,

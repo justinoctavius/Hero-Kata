@@ -1,5 +1,6 @@
 import React from 'react';
-import { Animated } from 'react-native';
+import { Animated, View, Text, Dimensions } from 'react-native';
+import { Theme } from '../../../constants';
 import { Hero } from '../../../types';
 import HeroCard from '../HeroCard';
 
@@ -8,6 +9,8 @@ type propsType = {
   scrollX: Animated.Value;
   onPressHero: (id: string) => void;
 };
+
+const { width, height } = Dimensions.get('window');
 
 const HeroList = ({ heros, scrollX, onPressHero }: propsType) => {
   return (
@@ -21,6 +24,21 @@ const HeroList = ({ heros, scrollX, onPressHero }: propsType) => {
         { useNativeDriver: true }
       )}
       renderItem={({ item }) => <HeroCard hero={item} onPress={onPressHero} />}
+      ListEmptyComponent={() => (
+        <View
+          style={{
+            backgroundColor: Theme.colors.black,
+            width,
+            height,
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Text style={{ color: Theme.colors.primary }}>
+            There are not heros
+          </Text>
+        </View>
+      )}
     />
   );
 };

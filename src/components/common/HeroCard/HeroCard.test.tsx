@@ -22,14 +22,14 @@ describe('<HeroCard />', () => {
     wrapper = render(<HeroCard hero={heroExpected} onPress={onPressHandler} />);
   });
 
-  it('Should render a hero type', () => {
-    wrapper.getByText(heroExpected.type);
+  it('Should render a hero type in uppercase', () => {
+    wrapper.getByText(heroExpected.type.toUpperCase());
   });
   it('Should render a name', () => {
     wrapper.getByText(heroExpected.name);
   });
   it('Should call the method once when is pressed', () => {
-    const card = wrapper.getByTestId('hero-card');
+    const card = wrapper.getByTestId('hero-btn');
     fireEvent(card, 'press');
     expect(onPressHandler).toBeCalledTimes(1);
   });
