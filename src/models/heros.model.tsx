@@ -9,7 +9,7 @@ const data: Hero[] = [
     photoUrls: ['https://wallpaperstock.net/wallpapers/thumbs1/33623hd.jpg'],
     birth: '10/20/1890',
     death: '10/10/1000',
-    status: Status.alive,
+    status: Status.outOfAction,
     type: Type.dc
   },
   {
@@ -40,7 +40,7 @@ const data: Hero[] = [
     photoUrls: ['https://images6.alphacoders.com/114/thumb-350-1141749.jpg'],
     birth: '10/20/1890',
     death: '10/10/1000',
-    status: Status.alive,
+    status: Status.dead,
     type: Type.marvel,
     timeline: Timeline.present
   }
